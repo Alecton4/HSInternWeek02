@@ -25,6 +25,11 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.github.adedayo.intellij.sdk</groupId>
+      <artifactId>forms_rt</artifactId>
+      <version>142.1</version>
+    </dependency>
   </dependencies>
 
   <build>
