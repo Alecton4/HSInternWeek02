@@ -16,30 +16,6 @@ public class GUIOperator {
     private JLabel labelAcc;
     private JLabel labelPwd;
 
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
-    public JTextField getTxtFdAcc() {
-        return txtFdAcc;
-    }
-
-    public JPasswordField getPwdFd() {
-        return pwdFd;
-    }
-
-    public JButton getBtnLogin() {
-        return btnLogin;
-    }
-
-    public JLabel getLabelAcc() {
-        return labelAcc;
-    }
-
-    public JLabel getLabelPwd() {
-        return labelPwd;
-    }
-
     public GUIOperator() {
         btnLogin.addActionListener(new ActionListener() {
             @Override
@@ -47,6 +23,16 @@ public class GUIOperator {
                 System.out.println("Trying logging you in...");
             }
         });
+    }
+
+    public void createAndShowGUi() {
+        //Create and set up the window.
+        JFrame frame = new JFrame("GUIOperator");
+        frame.setContentPane(new GUIOperator().mainPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
     }
 
     {
@@ -67,18 +53,19 @@ public class GUIOperator {
         mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayoutManager(3, 2, new Insets(0, 0, 0, 0), -1, -1));
         labelAcc = new JLabel();
+        labelAcc.setHorizontalTextPosition(4);
         labelAcc.setText("Account");
-        mainPanel.add(labelAcc, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        mainPanel.add(labelAcc, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         txtFdAcc = new JTextField();
         mainPanel.add(txtFdAcc, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         pwdFd = new JPasswordField();
         mainPanel.add(pwdFd, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         btnLogin = new JButton();
         btnLogin.setText("Log in");
-        mainPanel.add(btnLogin, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        mainPanel.add(btnLogin, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         labelPwd = new JLabel();
         labelPwd.setText("Password");
-        mainPanel.add(labelPwd, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        mainPanel.add(labelPwd, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
